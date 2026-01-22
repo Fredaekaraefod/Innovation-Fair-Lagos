@@ -1,0 +1,743 @@
+const fs = require('fs');
+const path = require('path');
+
+const rawData = `
+Ajeromi–Ifelodun LGA
+
+Adeolu Junior Secondary School
+
+Ajeromi Ifelodun Junior High School, Olodi Apapa
+
+Alakoto High School (Junior)
+
+Creek High School, OOL (Junior)
+
+Expressway Secondary School (Junior)
+
+Mokoya Junior High School, OOL
+
+Newland Secondary School (Junior)
+
+Ojoku Junior High School, Tolu
+
+Ojora Memorial Secondary School (Junior)
+
+Olodi-Apapa Secondary School (Junior)
+
+Oluwa Memorial Secondary School (Junior)
+
+Oshodi Junior Secondary School
+
+Reservation Secondary School (Junior)
+
+Temidire High School, OOL (Junior)
+
+Tincan Island High School (Junior)
+
+Unity Secondary School (Junior)
+Alimosho LGA
+
+Abesan Comprehensive Junior College
+
+Abesan Junior High School
+
+Akesan Junior Grammar School
+
+Alagbado Junior Grammar School
+
+Alaso Community Junior Secondary School
+
+Alimosho Junior Grammar School
+
+Community Junior Grammar School, Akowonjo
+
+Community Junior Grammar School, Isale-Ilu Ipaja
+
+Egan Junior Grammar School
+
+Egbe Junior High School
+
+Estate Junior Grammar School, Command Road Ipaja
+
+Idimu Junior High School
+
+Ifesowapo/Aboru Secondary School (Junior)
+
+Igando Community High School (Junior)
+
+Igando Junior Grammar School
+
+Ijegun Junior High School
+
+Ikotun Junior High School
+
+Ipaja Junior College
+
+Isheri-Osun Community Junior Secondary School
+
+Lagos State Model College, Meiran (Junior)
+
+Meiran Community High School (Junior)
+
+Muslim College Egbe (Junior)
+
+Oba Moruf Ojo-Oloola Junior High School, Ayobo
+
+Oke-Odo Junior High School
+
+Oke-Odo Junior College
+
+Olorunfunmi Junior Grammar School
+
+Olorunnisola Community Junior High School
+
+Sasa Community High School (Junior)
+
+State Comprehensive Junior College
+
+State Junior High School
+
+Tomia Community Junior Secondary School, Alagbado
+Kosofe LGA
+
+Ajegunle Junior High School
+
+Ajao Estate Junior High School
+
+Ayedere-Ajibola High School (Junior)
+
+Community Junior High School, Kosofe
+
+Comprehensive High School (Junior), Alapere
+
+Ifako Comprehensive Junior Secondary School
+
+Ikosi High School (Junior)
+
+Immaculate Heart Comprehensive Senior High School
+
+Isheri Grammar School (Junior)
+
+Kosofe College (Junior)
+
+Mende Junior High School
+
+Muslim College (Junior), Oworonsoki
+
+Ogudu Grammar School (Junior)
+Mushin LGA
+
+Atunrase Junior High School
+
+Birch Freeman High School (Junior)
+
+Community Junior Secondary School, Mushin
+
+Eko Boys High School (Junior), Idi-Oro
+
+Idi-Araba High School (Junior)
+
+Igbo-Owu Secondary School (Junior)
+
+Mushin Community High School (Junior)
+
+Oduduwa Junior Secondary School
+
+Ransome Kuti Memorial Grammar School (Junior)
+
+St. Joseph’s Secondary School (Junior)
+
+Surulere LGA
+
+Estate Junior Grammar School, Ilupeju
+
+Ilupeju Junior Grammar School
+
+Ilupeju Secondary School (Junior)
+
+Itire Community Secondary School (Junior)
+Oshodi–Isolo LGA
+
+Ajao Estate Junior Grammar School
+
+Ajumoni Junior Grammar School
+
+Ansar-Ud-Deen Comprehensive High School (Junior)
+
+Bolade Grammar School (Junior)
+
+Central High School, Okota (Junior)
+
+Ejigbo High School (Junior)
+
+Eko Junior Grammar School
+
+Ewutuntun Junior Grammar School
+
+Ijeshatedo Grammar School (Junior)
+
+Ikeja Junior College (Bolade)
+
+Ikeja Junior Grammar School
+
+Ilamoye Grammar School (Junior)
+
+Ire-Akari Grammar School (Junior)
+
+Isolo Comprehensive High School (Junior)
+
+Isolo High School (Junior)
+
+Isolo Secondary School (Junior)
+
+Mafoluku Junior Grammar School
+
+Metropolitan College, Isolo (Junior)
+
+Oke-Afa Junior College
+
+Okota Grammar School (Junior)
+
+Okota High School (Junior)
+
+Okota Secondary School (Junior)
+
+Oshodi Comprehensive Junior High School
+
+Oshodi Junior High School
+
+Unity Junior High School
+Ojo LGA
+
+Aganju Aka Community Junior Secondary School
+
+Ajangbadi High School (Junior)
+
+Alice Ogbara Memorial Junior Secondary School
+
+Army Cantonment Boys Secondary School (Junior)
+
+Army Cantonment Girls Secondary School (Junior)
+
+Awori College, Ojo (Junior)
+
+Community Junior Secondary School, Ojo
+
+Government Secondary School, Ijanikin (Junior)
+
+Iba Housing Estate Secondary School (Junior)
+
+Ilogbo-Elegba Grammar School (Junior)
+
+Isasi Grammar School (Junior)
+
+Lagos State Model Junior College, Ojo
+
+Ojo Junior High School
+
+Osolu High School (Junior)
+Ikorodu LGA
+
+Abule-Eko Community Junior Grammar School, Ijede
+
+Agbede Junior Grammar School
+
+Ansar-Ud-Deen Junior Grammar School
+
+Ayangburen Junior High School
+
+Community Junior Grammar School, Gberigbe
+
+Community Secondary School, Bayeku (Junior)
+
+Ewu-Elepe Community High School (Junior)
+
+Government College Ikorodu (Junior), Owutu
+
+Ifelodun Junior High School
+
+Ikorodu Junior Grammar School
+
+Ikorodu Junior High School
+
+Imota Community Grammar School (Junior)
+
+Ipakodo Junior Grammar School
+
+Keme Balogun Junior College, Ibeshe
+
+Lagos State Civil Service Model College (Junior), Igbogbo
+
+Lagos State Girls Junior Model College, Agunfoye Igbogbo
+
+Lagos State Junior Model College, Igbokuta
+
+Lajo Community Junior Secondary School
+
+Luwasa High School (Junior), Ijede
+
+Odogunyan Junior Grammar School
+
+Odokekere Community Junior Secondary School
+
+Offin-Ile Community Junior Secondary School
+
+Oreyo Grammar School (Junior)
+
+Oreyo Junior Grammar School
+
+Reri Secondary School (Junior), Oreta/Offin
+
+Shams-El-Deen Grammar School (Junior), Itunmaja
+
+United High School Ikorodu (Junior)
+
+Yewa Junior Grammar School
+
+Zumratul Islamiyyah Grammar School (Junior), Igbogbo
+Surulere LGA
+
+Adebola Baptist High School (Junior)
+
+Aguda Community Junior Secondary School
+
+Aguda Junior Grammar School
+
+Ajigbeda Junior Girls High School
+
+Akintan Junior Grammar School, Ojuelegba
+
+Ansar-Ud-Deen Junior High School
+
+Clegg Junior Girls High School
+
+Community Junior Grammar School, Femi-Ayantuga
+
+Community Junior High School, Surulere
+
+Eric-Moore Junior High School
+
+Gbaja Boys Junior High School
+
+Gbaja Girls Junior High School
+
+Government Junior College Lagos
+
+Ideal Junior Girls High School
+
+Ijeshatedo Junior Secondary School, Sanya
+
+Iponri Estate Junior High School
+
+Itolo Girls Junior Secondary School
+
+Jubilee Model Junior Grammar School, Coker Village
+
+Lagos Progressive Junior Secondary School
+
+Muritala Ajadi Animashaun Community Junior Grammar School
+
+New Era Girls Junior Secondary School
+
+Onitolo Community Junior High School
+
+Sanya Junior Grammar School
+
+Stadium Junior High School
+
+State Junior Grammar School
+
+Surulere Girls Junior Secondary School
+
+Surulere Junior Secondary School
+
+Yaba LGA
+
+Zumratul Islamiyyah Junior High School, Yaba
+Agege LGA
+
+Agege Junior College, Iloro
+
+District Junior College, Alagba
+
+Eko Junior College, Iloro
+
+Girls High School Agege (Junior)
+
+Government College Agege (Junior)
+
+Government Comprehensive College (Junior)
+
+Iloro Grammar School (Junior)
+
+Mulero Junior College
+
+Orile-Agege Community High School (Junior)
+
+Sango Junior Secondary School (Inclusive)
+
+State Junior High School
+
+Unity Junior College
+
+Yewa High School (Junior), Alagba
+Ifako-Ijaye LGA
+
+Akinyele-Alakuko Junior Secondary School
+
+Estate Junior High School II
+
+Fagba Junior Grammar School
+
+Ijaiye Housing Estate Grammar School (Junior)
+
+Ijaiye-Ojokoro High School (Junior)
+
+Ijaiye-Ojokoro Junior College
+
+Iju Junior Grammar School
+
+Iju Obawole Junior Grammar School
+
+Stadium Grammar School (Junior)
+
+Station Junior Grammar School
+
+Vetland Grammar School (Junior)
+Shomolu LGA
+
+Baptist Secondary School (Junior), Obanikoro
+
+Bariga Junior Grammar School
+
+Eva Adelaja Girls Secondary Grammar School (Junior)
+
+Gbagada Comprehensive Junior High School
+
+Gbagada Girls Junior Secondary School
+
+Igbobi Junior High School
+
+Morocco Comprehensive High School (Junior)
+
+Oduduwa Junior High School, Gbagada
+
+Saint Luke Junior Grammar School I
+Amuwo-Odofin LGA
+
+Agboju Junior Secondary School
+
+Alternative High School for Girls, Agboju
+
+Amuwo Grammar School (Junior)
+
+Amuwo-Odofin Community Secondary School
+
+Amuwo-Odofin High School (Junior)
+
+Amuwo-Odofin Secondary School (Junior)
+
+Awori Ajeromi Junior Grammar School
+
+Dr Lucas Memorial High School (Junior), Kirikiri
+
+Festac College (Junior)
+
+Festac Girls Junior Secondary School
+
+Festac Grammar School (Junior)
+
+Igblogun Junior Secondary School
+
+Imoye Junior High School
+
+Itun-Agan Community Junior Grammar School
+
+Ivory Junior Grammar School
+
+Kuje Secondary School (Junior)
+
+Navy Town Secondary School (Junior)
+
+Odofin Secondary School (Junior)
+
+Satellite Secondary School (Junior)
+
+Tomaro Junior Secondary School
+
+Unity Junior Grammar School, Ikaare
+Lagos Mainland LGA
+
+Akoka High School (Junior)
+
+Denton Grammar School (Junior)
+
+Eletu-Odibo High School (Junior)
+
+Herbert Macaulay Grammar School (Junior)
+
+Ijero Girls Junior High School
+
+Ilogbo High School (Junior)
+
+Jibowu High School (Junior)
+
+Kadara Grammar School (Junior)
+
+Mobolaji Bank-Anthony High School (Junior)
+
+Oke-Odo High School (Junior)
+
+Onike Girls High School (Junior)
+
+Queen’s College Yaba
+
+Saint Francis Grammar School (Junior)
+
+Wesley Girls Secondary School (Junior)
+Ikeja LGA
+
+Agidingbi Grammar School (Junior)
+
+Army Cantonment Secondary School (Junior)
+
+Army Children Junior High School, Wasimi
+
+Command Day Secondary School, Ikeja
+
+Community High School Wasimi (Junior)
+
+Ogba Junior Grammar School
+
+Ojodu Grammar School (Junior)
+
+Ojodu Junior High School
+
+Okeira Junior Grammar School
+
+Omole Junior Grammar School
+
+Onilekere Junior High School
+
+Opebi Junior Grammar School
+
+Oregun High School (Junior)
+Eti-Osa LGA
+
+Akande Dahunsi Memorial High School (Junior)
+
+Badore Community Junior Secondary School
+
+Eti-Osa Community High School, Sangotedo
+
+Falomo High School (Junior)
+
+Gbara Community Junior Secondary School
+
+Girls Secondary Grammar School (Junior), Ikoyi
+
+Government College Maroko (Junior)
+
+Government Junior College, Victoria Island
+
+Government Junior College Ikoyi
+
+Government Junior Secondary School, Takwa Bay
+
+Ilado Community High School (Junior)
+
+Ilasan Secondary School (Junior)
+
+Ireti Grammar School (Junior)
+
+Kuramo College (Junior)
+
+Lagos State Model College Badore (Junior)
+
+Ogombo Community Junior Secondary School
+
+Olomu Community Junior Secondary School, Ajah
+
+Resettlement Community Junior Secondary School, Ajah
+
+Victoria Island Secondary School
+
+Wahab Folawiyo High School (Junior)
+Ibeju-Lekki LGA
+
+Community High School, Idotun-Magbon
+
+Community High School, Orimedu
+
+Community Junior High School, Idata/Ilagbo
+
+Community Junior High School, Ebute-Lekki
+
+Community Secondary School Debojo (Junior)
+
+Elemoro Community Junior Secondary School
+
+Ibeju High School (Junior)
+
+Iwerekun Community High School (Junior)
+
+Magbon-Alade Grammar School (Junior)
+Epe LGA
+
+Adesowon Junior Grammar School
+
+Agbowa Community Grammar School (Junior)
+
+Ajebo High School (Junior)
+
+Alaro Community High School (Junior)
+
+Army Children Junior High School, Epe
+
+Epe Girls High School (Junior)
+
+Epe Grammar School (Junior)
+
+Government College Ketu (Junior), Itokin
+
+Igbogun High School (Junior)
+
+Igbooye Community Junior High School
+
+Ise High School (Junior)
+
+Lagos Model College Agbowa (Junior)
+
+Lagos State Model College Igbnla (Junior)
+
+Lofi Ogunmude College (Junior)
+
+Molajoye Community High School (Junior)
+
+Nazareth College (Junior)
+
+Odo-Ayandelu/Onosa Junior Secondary School
+
+Odo-Obara High School (Junior)
+
+Odomola Secondary School (Junior)
+
+Ogunmodede College (Junior)
+
+Okemagba High School (Junior)
+
+Oriba High School (Junior)
+
+Otta-Ikosi High School (Junior)
+
+Pobuna JSS
+
+St. Patrick Junior Grammar School
+Lagos Island LGA
+
+Boys Academy (Junior)
+
+Dolphin Secondary School (Junior)
+
+Ebute-Elefun Secondary School (Junior)
+
+Eko Akete Grammar School (Junior)
+
+Elegbata Junior High School
+
+Epetedo Secondary School (Junior)
+
+Girls Academy (Junior), Lafiaji
+
+Isale-Eko Grammar School (Junior)
+
+King Ado Secondary School (Junior)
+
+Lafiaji High School (Junior)
+
+Oke-Suna High School (Junior)
+
+King’s College
+Apapa LGA
+
+Apapa Junior High School
+
+Randle Junior Secondary School
+
+United Christian Junior Secondary School
+
+Surulere / Lagos Mainland Border
+
+Araromi Junior Secondary School, Sari-Iganmu
+
+Iganmu Junior High School
+
+Sari-Iganmu Junior Secondary School
+Badagry LGA
+
+Ajara Comprehensive Junior High School
+
+Ansar-Ud-Deen Society Junior Grammar School
+
+Araromi-Ilogbo Junior Secondary School
+
+Badagry Junior Grammar School, Ikoga-Zebbe
+
+Government Junior College Ajara
+
+Iworo-Ajido Junior Model College
+
+Kankon Junior Secondary School
+
+Lagos State Model College Kankon
+
+Methodist Junior High School, Topo
+
+Sito-Gbethrome Junior Secondary School
+
+State Junior High School, Ibereko
+
+Thogli Community Junior Grammar School
+
+Topo Junior Grammar School
+`;
+
+const lines = rawData.split('\n');
+const schoolsByLGA = {};
+let currentLGA = 'Uncategorized';
+
+lines.forEach(line => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.includes("LIST OF PUBLIC SCHOOLS") || trimmed.includes("PAGE")) return;
+
+    if (trimmed.endsWith('LGA') || trimmed.includes("Border")) {
+        currentLGA = trimmed.replace('LGA', '').trim();
+        if (!schoolsByLGA[currentLGA]) {
+            schoolsByLGA[currentLGA] = [];
+        }
+    } else {
+        if (!schoolsByLGA[currentLGA]) {
+            schoolsByLGA[currentLGA] = [];
+        }
+        schoolsByLGA[currentLGA].push(trimmed);
+    }
+});
+
+// Since the UI currently expects a flat array of strings for search, let's keep it flat for now 
+// but we could also save the structured version.
+// For now, let's overwrite schools.json with a FLAT sorted list of all schools,
+// but we might want to store the structured version as `schools-structured.json` for advanced filtering later.
+
+const flatList = [];
+Object.values(schoolsByLGA).forEach(schools => {
+    flatList.push(...schools);
+});
+flatList.sort();
+
+const outputPath = path.resolve(__dirname, 'src', 'data', 'schools.json');
+fs.writeFileSync(outputPath, JSON.stringify(flatList, null, 2));
+
+const structuredPath = path.resolve(__dirname, 'src', 'data', 'schools-by-lga.json');
+fs.writeFileSync(structuredPath, JSON.stringify(schoolsByLGA, null, 2));
+
+console.log('Extracted ' + flatList.length + ' schools across ' + Object.keys(schoolsByLGA).length + ' LGAs.');
