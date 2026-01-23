@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { sdgs } from '@/data/sdgs';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleArrow, ScribbleUnderline } from '@/components/ui/doodles';
 
@@ -52,12 +53,59 @@ export default function AboutPage() {
                                     Our Solution
                                 </h3>
                                 <p className="text-blue-800 text-lg leading-relaxed">
-                                    A dedicated platform designed specifically for public secondary schools. We provide the <strong>structure, mentorship, and stage</strong> for students to solve real problems.
+                                    A dedicated <strong>IOT & Hardware Innovation Competition</strong> designed specifically for public secondary schools. We provide the structure, hardware kits, and mentorship for students to solve real problems.
                                     <br /><br />
-                                    We don't just teach code; we empower students to believe their ideas matter and have the power to change their communities.
+                                    We don't just teach code; we empower students to build physical solutions that address the <strong>United Nations Sustainable Development Goals (SDGs)</strong>.
                                 </p>
                             </div>
                         </FadeIn>
+                    </div>
+                </div>
+            </div>
+
+            {/* SDGs Section */}
+            <div className="py-20 bg-white border-t border-slate-100">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <div className="text-center mb-12">
+                        <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">The Framework</span>
+                        <h2 className="text-3xl font-black text-slate-900 mt-2">Solving Global Problems, Locally</h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto mt-4">
+                            Students are challenged to build hardware and IoT solutions that directly address one of the 17 Sustainable Development Goals.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                        {sdgs.map((sdg) => (
+                            <div key={sdg.number} className="group relative">
+                                <div className={`aspect-square rounded-xl p-3 flex flex-col justify-between transition-all hover:scale-105 hover:shadow-lg cursor-default border border-transparent hover:border-slate-200 ${sdg.number === 1 ? 'bg-[#E5243B] text-white' :
+                                        sdg.number === 2 ? 'bg-[#DDA63A] text-white' :
+                                            sdg.number === 3 ? 'bg-[#4C9F38] text-white' :
+                                                sdg.number === 4 ? 'bg-[#C5192D] text-white' :
+                                                    sdg.number === 5 ? 'bg-[#FF3A21] text-white' :
+                                                        sdg.number === 6 ? 'bg-[#26BDE2] text-white' :
+                                                            sdg.number === 7 ? 'bg-[#FCC30B] text-white' :
+                                                                sdg.number === 8 ? 'bg-[#A21942] text-white' :
+                                                                    sdg.number === 9 ? 'bg-[#FD6925] text-white' :
+                                                                        sdg.number === 10 ? 'bg-[#DD1367] text-white' :
+                                                                            sdg.number === 11 ? 'bg-[#FD9D24] text-white' :
+                                                                                sdg.number === 12 ? 'bg-[#BF8B2E] text-white' :
+                                                                                    sdg.number === 13 ? 'bg-[#3F7E44] text-white' :
+                                                                                        sdg.number === 14 ? 'bg-[#0A97D9] text-white' :
+                                                                                            sdg.number === 15 ? 'bg-[#56C02B] text-white' :
+                                                                                                sdg.number === 16 ? 'bg-[#00689D] text-white' :
+                                                                                                    'bg-[#19486A] text-white'
+                                    }`}>
+                                    <span className="text-xl font-black opacity-50">{sdg.number}</span>
+                                    <span className="text-[0.65rem] md:text-xs font-bold leading-tight line-clamp-3">{sdg.title}</span>
+                                </div>
+
+                                {/* Tooltip */}
+                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                    {sdg.description}
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

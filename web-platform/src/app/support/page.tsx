@@ -38,8 +38,9 @@ export default function SupportPage() {
                             <ul className="space-y-4 mb-8">
                                 {[
                                     "Visit schools directly to mobilize students 🚌",
-                                    "Provide Hardware Kits (Arduino/Sensors) for Clubs 🤖",
-                                    "Organize regional training workshops 👩‍🏫",
+                                    "Provide Hardware Kits (Arduino, ESP32, Raspberry Pi) 🤖",
+                                    "Supply Sensors, Breadboards, and Soldering Stations 🔌",
+                                    "Organize regional IoT & Robotics workshops 👩‍🏫",
                                     "Secure the venue for the Grand Finale 🏟️"
                                 ].map(item => (
                                     <li key={item} className="flex items-center text-gray-700 font-medium p-3 bg-blue-50 rounded-lg">
@@ -87,7 +88,7 @@ export default function SupportPage() {
                             <div className="mt-8 text-center relative z-10">
                                 <p className="text-sm font-medium text-gray-500 mb-4">Prefer to donate equipment?</p>
                                 <a href="mailto:support@innovationfairlagos.com" className="block w-full text-center py-4 border-2 border-dashed border-blue-300 text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition bg-blue-50/30">
-                                    Contact Us for Material Donations
+                                    Donate Hardware (Sensors, Kits, Tools)
                                 </a>
                             </div>
                         </div>

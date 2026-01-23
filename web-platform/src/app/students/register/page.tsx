@@ -2,10 +2,9 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import schoolsByLGA from '@/data/schools-by-lga.json';
-import { cn } from '@/lib/utils';
-import { Check, Loader2, Sparkles } from 'lucide-react';
+import { sdgs } from '@/data/sdgs';
+import { Check, Loader2, Sparkles, UploadCloud } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleCircle } from '@/components/ui/doodles';
 
@@ -15,7 +14,7 @@ export default function StudentRegisterPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    // Basic form state
+    // Form state
     const [formData, setFormData] = useState({
         isTeam: false,
         teamName: '',
@@ -27,7 +26,10 @@ export default function StudentRegisterPage() {
         techClubName: '',
         teacherName: '',
         teacherContact: '',
-        areaOfInterest: 'Software / Coding',
+        areaOfInterest: 'IoT & Hardware Innovation',
+        projectTitle: '',
+        sdg: '',
+        projectDescription: '',
         motivation: '',
         consent: false
     });
@@ -44,7 +46,6 @@ export default function StudentRegisterPage() {
         await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoading(false);
         setIsSuccess(true);
-        // Clear form or redirect logic here
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -92,9 +93,9 @@ export default function StudentRegisterPage() {
                     <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
                         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 py-10 px-8 text-white text-center relative">
                             <ScribbleCircle className="absolute -top-12 -left-12 w-32 h-32 text-white/10" />
-                            <h1 className="text-3xl md:text-4xl font-black mb-2">Student Interest Portal</h1>
+                            <h1 className="text-3xl md:text-4xl font-black mb-2">Student IoT & Innovation Portal</h1>
                             <p className="text-blue-100 text-lg">
-                                Ready to build the future? Join the movement today!
+                                Ready to build the future with Hardware & Code? Join now!
                             </p>
                         </div>
 
@@ -227,9 +228,9 @@ export default function StudentRegisterPage() {
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all font-medium"
                                     >
-                                        <option>Software / Coding 💻</option>
-                                        <option>Hardware / Electronics 🔌</option>
+                                        <option>IoT & Hardware Innovation 🔌</option>
                                         <option>Robotics 🤖</option>
+                                        <option>Software / Coding 💻</option>
                                         <option>Design / Creative Arts 🎨</option>
                                         <option>Science & Research 🔬</option>
                                     </select>
@@ -272,6 +273,69 @@ export default function StudentRegisterPage() {
                                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all font-medium"
                                     placeholder="I love building things... Tell us your story!"
                                 />
+                            </div>
+
+                            {/* New Project Section */}
+                            <div className="pt-8 border-t border-gray-100">
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                    <span className="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">💡</span>
+                                    Project Idea (Optional but Recommended)
+                                </h3>
+
+                                <div className="grid grid-cols-1 gap-6">
+                                    <div className="space-y-3">
+                                        <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Project Title</label>
+                                        <input
+                                            name="projectTitle"
+                                            value={formData.projectTitle}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all font-medium"
+                                            placeholder="e.g. Smart Irrigation System"
+                                        />
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Which SDG does it solve?</label>
+                                        <select
+                                            name="sdg"
+                                            value={formData.sdg}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all font-medium"
+                                        >
+                                            <option value="">Select an SDG Goal</option>
+                                            {sdgs.map(goal => (
+                                                <option key={goal.number} value={goal.number}>
+                                                    Goal {goal.number}: {goal.title}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Project Description</label>
+                                        <textarea
+                                            name="projectDescription"
+                                            value={formData.projectDescription}
+                                            onChange={handleChange}
+                                            rows={4}
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all font-medium"
+                                            placeholder="Briefly describe what you want to build and how it uses hardware/IoT..."
+                                        />
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Upload Concept Note / Sketch (PDF/Image)</label>
+                                        <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer group">
+                                            <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                                                <UploadCloud className="text-blue-600 w-6 h-6" />
+                                            </div>
+                                            <div className="text-gray-900 font-bold mb-1">Click to upload document</div>
+                                            <div className="text-sm text-gray-500">or drag and drop (PDF, PNG, JPG)</div>
+                                            <div className="text-xs text-gray-400 mt-2">Maximum size: 5MB</div>
+                                            <input type="file" className="hidden" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="flex items-center space-x-3 pt-4 bg-blue-50 p-4 rounded-xl border border-blue-100">
