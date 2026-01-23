@@ -52,25 +52,71 @@ export default function ProgramPage() {
                             <div className="hidden lg:block absolute -left-6 top-1/3 text-4xl">💡</div>
                         </FloatingElement>
 
-                        <h2 className="text-2xl font-bold text-gray-900 mb-8">How Students Are Selected</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8">Rigorous Selection Process</h2>
                         <p className="text-gray-600 mb-6 text-lg">
-                            Selection is based on passion, commitment, and creativity, not just academic grades.
-                            We look for students who are <strong>curious</strong> about how things work and eager to solve problems.
+                            To ensure quality and impact, we follow a strict multi-stage selection process.
+                            Excellence is the standard.
                         </p>
 
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mt-12">
-                            {steps.map((step, idx) => (
-                                <FadeIn key={idx} delay={0.3 + (idx * 0.1)} className="relative pl-8 md:pl-0 group">
-                                    <div className="md:hidden absolute left-0 top-0 bottom-0 w-0.5 bg-blue-100"></div>
-                                    <div className="md:mb-6 flex flex-col items-start gap-3">
-                                        <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 font-black text-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 transform group-hover:-rotate-6">
-                                            {idx + 1}
-                                        </span>
-                                        <h3 className="text-xl font-bold text-gray-900 mt-2">{step.title.split('. ')[1]}</h3>
-                                    </div>
-                                    <p className="text-gray-500 leading-relaxed">{step.desc}</p>
-                                </FadeIn>
-                            ))}
+                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mt-12 relative">
+                            {/* Connector Line */}
+                            <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-gray-100 -z-10"></div>
+
+                            {/* Stage 1 */}
+                            <FadeIn delay={0.3} className="relative group bg-white">
+                                <div className="mb-6">
+                                    <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-slate-100 text-slate-700 font-black text-xl group-hover:bg-slate-800 group-hover:text-white transition-colors duration-300">
+                                        1
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">Open Registration</h3>
+                                <div className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-md mb-3">Unlimited Teams</div>
+                                <p className="text-gray-500 text-sm leading-relaxed">
+                                    Schools can register multiple teams. All interested students are welcome to form teams and submit their initial interest.
+                                </p>
+                            </FadeIn>
+
+                            {/* Stage 2 */}
+                            <FadeIn delay={0.4} className="relative group bg-white">
+                                <div className="mb-6">
+                                    <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 font-black text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                                        2
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">The Shortlist</h3>
+                                <div className="inline-block px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-md mb-3">Top 200 Teams</div>
+                                <p className="text-gray-500 text-sm leading-relaxed">
+                                    We review all applications based on idea merit and potential. Only the best 200 teams are invited to proceed.
+                                </p>
+                            </FadeIn>
+
+                            {/* Stage 3 */}
+                            <FadeIn delay={0.5} className="relative group bg-white">
+                                <div className="mb-6">
+                                    <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 font-black text-xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                                        3
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">Enablement</h3>
+                                <div className="inline-block px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-md mb-3">Top 100 Selection</div>
+                                <p className="text-gray-500 text-sm leading-relaxed">
+                                    Further screening selects the Top 100. These teams receive <strong>hardware equipment, materials, and direct mentorship</strong> to build their prototypes.
+                                </p>
+                            </FadeIn>
+
+                            {/* Stage 4 */}
+                            <FadeIn delay={0.6} className="relative group bg-white">
+                                <div className="mb-6">
+                                    <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-700 font-black text-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                                        4
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">The Grand Finale</h3>
+                                <div className="inline-block px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-md mb-3">Main Contest</div>
+                                <p className="text-gray-500 text-sm leading-relaxed">
+                                    The final showdown. Teams present working prototypes to judges. Winners receive scholarships and recognition.
+                                </p>
+                            </FadeIn>
                         </div>
                     </div>
                 </FadeIn>

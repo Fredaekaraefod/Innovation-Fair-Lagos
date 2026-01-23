@@ -249,7 +249,7 @@ export default function StudentRegisterPage() {
                                     />
                                 </div>
                                 <div className="space-y-3">
-                                    <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Teacher's Phone</label>
+                                    <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Teacher&apos;s Phone</label>
                                     <input
                                         required
                                         name="teacherContact"

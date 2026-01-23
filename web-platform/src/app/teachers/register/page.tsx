@@ -256,6 +256,7 @@ export default function TeacherRegisterPage() {
                             </button>
                         </form>
                     </div>
+                </FadeIn>
             </div>
         </div>
     )

@@ -35,7 +35,7 @@ export function FadeIn({
     );
 }
 
-export function FloatingElement({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) {
+export function FloatingElement({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
     return (
         <motion.div
             animate={{ y: [0, -10, 0] }}
@@ -46,6 +46,7 @@ export function FloatingElement({ children, delay = 0 }: { children: React.React
                 ease: "easeInOut",
                 delay: delay
             }}
+            className={className}
         >
             {children}
         </motion.div>

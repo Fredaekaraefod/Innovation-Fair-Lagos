@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils';
 import { FloatingElement } from '../ui/animations';
 
 const navItems = [
-    { name: 'About', href: '/about' },
     { name: 'Program', href: '/program' },
     { name: 'Eligible Schools', href: '/schools' },
+    // About is now a dropdown handled in the component
 ];
 
 export function Navbar() {
@@ -35,6 +35,29 @@ export function Navbar() {
 
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center space-x-8">
+                            {/* About Dropdown */}
+                            <div className="relative group">
+                                <button className="flex items-center text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors uppercase tracking-wide">
+                                    About <ChevronDown className="ml-1 w-4 h-4" />
+                                </button>
+                                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                    <div className="bg-white rounded-xl shadow-xl border border-indigo-50 p-4 w-56 grid gap-2">
+                                        <Link href="/about" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div className="bg-blue-100 p-2 rounded-full mr-3 text-blue-600"><Users className="w-5 h-5" /></div>
+                                            <div>
+                                                <div className="font-bold text-gray-900">The Project</div>
+                                            </div>
+                                        </Link>
+                                        <Link href="/convener" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div className="bg-indigo-100 p-2 rounded-full mr-3 text-indigo-600"><Heart className="w-5 h-5" /></div>
+                                            <div>
+                                                <div className="font-bold text-gray-900">The Convener</div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+
                             {navItems.map((item) => (
                                 <Link
                                     key={item.name}
@@ -132,6 +155,12 @@ export function Navbar() {
                                 {item.name}
                             </Link>
                         ))}
+
+                        <div className="pt-2 pb-2">
+                            <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">About</h3>
+                            <Link href="/about" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">The Project</Link>
+                            <Link href="/convener" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">The Convener</Link>
+                        </div>
 
                         <div className="pt-4 pb-2">
                             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">Get Involved</h3>
