@@ -32,7 +32,7 @@ export default function SchoolsPage() {
     return (
         <div className="bg-slate-50 min-h-screen">
             {/* Hero with Search */}
-            <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 py-16 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 pt-32 pb-16 text-white relative overflow-hidden">
                 <FloatingElement delay={0}><div className="absolute top-10 left-10 opacity-20 text-6xl">🏫</div></FloatingElement>
                 <FloatingElement delay={1.5}><div className="absolute bottom-10 right-10 opacity-20 text-6xl">✨</div></FloatingElement>
 
