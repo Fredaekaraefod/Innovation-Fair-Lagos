@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleUnderline } from '@/components/ui/doodles';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Laptop, Wrench } from 'lucide-react';
 
 export default function MentorsPage() {
     return (
@@ -25,12 +25,12 @@ export default function MentorsPage() {
 
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                                <div className="text-4xl mb-4">💻</div>
+                                <div className="mb-4 text-blue-600"><Laptop className="w-10 h-10" /></div>
                                 <h3 className="font-bold text-gray-900 text-lg mb-2">Virtual Mentorship</h3>
                                 <p className="text-gray-600">Review project pitches and provide feedback via video calls (1-2 hours/month).</p>
                             </div>
                             <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                                <div className="text-4xl mb-4">🛠️</div>
+                                <div className="mb-4 text-green-600"><Wrench className="w-10 h-10" /></div>
                                 <h3 className="font-bold text-gray-900 text-lg mb-2">Physical Mentorship</h3>
                                 <p className="text-gray-600">Visit selected school clubs to conduct workshops or guide prototype building.</p>
                             </div>

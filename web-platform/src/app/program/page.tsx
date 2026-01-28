@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Lightbulb, AlertTriangle } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleArrow, ScribbleCircle } from '@/components/ui/doodles';
 
@@ -49,7 +49,9 @@ export default function ProgramPage() {
                 <FadeIn delay={0.2}>
                     <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 mb-12 border border-slate-100">
                         <FloatingElement delay={0.5}>
-                            <div className="hidden lg:block absolute -left-6 top-1/3 text-4xl">💡</div>
+                            <div className="hidden lg:block absolute -left-6 top-1/3 text-4xl text-yellow-500">
+                                <Lightbulb className="w-12 h-12 text-yellow-600 fill-yellow-100" />
+                            </div>
                         </FloatingElement>
 
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">Rigorous Selection Process</h2>
@@ -141,7 +143,9 @@ export default function ProgramPage() {
                         </div>
 
                         <div className="mt-10 p-6 bg-yellow-50 text-yellow-900 rounded-xl border border-yellow-200 text-sm flex gap-4 items-start">
-                            <div className="text-2xl">⚠️</div>
+                            <div className="text-2xl text-yellow-600">
+                                <AlertTriangle className="w-8 h-8" />
+                            </div>
                             <div>
                                 <strong className="block mb-1 text-base">Important Note</strong>
                                 We do not provide cash grants to students directly. Support comes in the form of materials, training, and opportunity.

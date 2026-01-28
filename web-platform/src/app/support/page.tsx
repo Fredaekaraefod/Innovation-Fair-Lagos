@@ -59,36 +59,18 @@ export default function SupportPage() {
                         </div>
 
                         {/* Bank Details */}
-                        <div className="bg-white p-8 rounded-3xl shadow-xl border-l-4 border-l-blue-600 border-gray-100 h-full relative overflow-hidden">
+                        <div className="bg-white p-8 rounded-3xl shadow-xl border-l-4 border-l-blue-600 border-gray-100 h-full relative overflow-hidden flex flex-col justify-center items-center text-center">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full opacity-50 z-0"></div>
                             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2 relative z-10">
-                                <CreditCard className="text-blue-600" /> Bank Transfer Details
+                                <Heart className="text-blue-600" /> Support The Mission
                             </h3>
 
-                            <div className="space-y-6 text-sm text-gray-600 bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <p className="uppercase text-xs font-bold text-gray-400 mb-1">Account Name</p>
-                                        <p className="text-lg font-mono text-gray-900 font-bold break-all">Raenest/Freda Ekara Efod</p>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className="uppercase text-xs font-bold text-gray-400 mb-1">Bank Name</p>
-                                        <p className="text-lg text-gray-900 font-medium">Kredi Money Mfb LTD</p>
-                                    </div>
-                                </div>
-
-                                <div className="pt-4 border-t border-gray-200">
-                                    <p className="uppercase text-xs font-bold text-gray-400 mb-2">Account Number</p>
-                                    <div className="flex items-center gap-3">
-                                        <p className="text-3xl font-mono text-blue-900 tracking-wider font-bold">1844839102</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mt-8 text-center relative z-10">
-                                <p className="text-sm font-medium text-gray-500 mb-4">Prefer to donate equipment?</p>
-                                <a href="mailto:support@innovationfairlagos.com" className="block w-full text-center py-4 border-2 border-dashed border-blue-300 text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition bg-blue-50/30">
-                                    Donate Hardware (Sensors, Kits, Tools)
+                            <div className="space-y-4 relative z-10">
+                                <p className="text-gray-600 text-lg">
+                                    If you are interested in supporting, please send me an email:
+                                </p>
+                                <a href="mailto:fredaefod@gmail.com" className="inline-block text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                                    fredaefod@gmail.com
                                 </a>
                             </div>
                         </div>

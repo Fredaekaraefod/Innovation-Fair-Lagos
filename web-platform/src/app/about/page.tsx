@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { sdgs } from '@/data/sdgs';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleArrow, ScribbleUnderline } from '@/components/ui/doodles';
+import { TrendingDown, Lightbulb, Users, Rocket, Handshake, Trophy } from 'lucide-react';
 
 export default function AboutPage() {
     return (
@@ -34,8 +35,10 @@ export default function AboutPage() {
                         <FadeIn delay={0.2} className="relative">
                             <div className="absolute -left-4 -top-4 w-24 h-24 bg-red-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
                             <div className="relative bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
-                                <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center">
-                                    <span className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3 text-xl">📉</span>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600">
+                                        <TrendingDown className="w-6 h-6" />
+                                    </div>
                                     The Challenge
                                 </h3>
                                 <p className="text-slate-600 text-lg leading-relaxed">
@@ -48,8 +51,10 @@ export default function AboutPage() {
                         <FadeIn delay={0.4} className="relative">
                             <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-green-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
                             <div className="relative bg-blue-50 p-8 rounded-3xl border border-blue-100 shadow-sm">
-                                <h3 className="text-2xl font-bold text-blue-900 mb-4 flex items-center">
-                                    <span className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center mr-3 text-xl">💡</span>
+                                <h3 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                                    <div className="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center text-blue-700">
+                                        <Lightbulb className="w-6 h-6" />
+                                    </div>
                                     Our Solution
                                 </h3>
                                 <p className="text-blue-800 text-lg leading-relaxed">
@@ -77,26 +82,29 @@ export default function AboutPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
                         {sdgs.map((sdg) => (
                             <div key={sdg.number} className="group relative">
-                                <div className={`aspect-square rounded-xl p-3 flex flex-col justify-between transition-all hover:scale-105 hover:shadow-lg cursor-default border border-transparent hover:border-slate-200 ${sdg.number === 1 ? 'bg-[#E5243B] text-white' :
-                                        sdg.number === 2 ? 'bg-[#DDA63A] text-white' :
-                                            sdg.number === 3 ? 'bg-[#4C9F38] text-white' :
-                                                sdg.number === 4 ? 'bg-[#C5192D] text-white' :
-                                                    sdg.number === 5 ? 'bg-[#FF3A21] text-white' :
-                                                        sdg.number === 6 ? 'bg-[#26BDE2] text-white' :
-                                                            sdg.number === 7 ? 'bg-[#FCC30B] text-white' :
-                                                                sdg.number === 8 ? 'bg-[#A21942] text-white' :
-                                                                    sdg.number === 9 ? 'bg-[#FD6925] text-white' :
-                                                                        sdg.number === 10 ? 'bg-[#DD1367] text-white' :
-                                                                            sdg.number === 11 ? 'bg-[#FD9D24] text-white' :
-                                                                                sdg.number === 12 ? 'bg-[#BF8B2E] text-white' :
-                                                                                    sdg.number === 13 ? 'bg-[#3F7E44] text-white' :
-                                                                                        sdg.number === 14 ? 'bg-[#0A97D9] text-white' :
-                                                                                            sdg.number === 15 ? 'bg-[#56C02B] text-white' :
-                                                                                                sdg.number === 16 ? 'bg-[#00689D] text-white' :
-                                                                                                    'bg-[#19486A] text-white'
+                                <div className={`aspect-square rounded-xl p-4 flex flex-col justify-between transition-all hover:scale-105 hover:shadow-xl cursor-default border border-transparent hover:border-slate-200 ${sdg.number === 1 ? 'bg-[#E5243B] text-white' :
+                                    sdg.number === 2 ? 'bg-[#DDA63A] text-white' :
+                                        sdg.number === 3 ? 'bg-[#4C9F38] text-white' :
+                                            sdg.number === 4 ? 'bg-[#C5192D] text-white' :
+                                                sdg.number === 5 ? 'bg-[#FF3A21] text-white' :
+                                                    sdg.number === 6 ? 'bg-[#26BDE2] text-white' :
+                                                        sdg.number === 7 ? 'bg-[#FCC30B] text-white' :
+                                                            sdg.number === 8 ? 'bg-[#A21942] text-white' :
+                                                                sdg.number === 9 ? 'bg-[#FD6925] text-white' :
+                                                                    sdg.number === 10 ? 'bg-[#DD1367] text-white' :
+                                                                        sdg.number === 11 ? 'bg-[#FD9D24] text-white' :
+                                                                            sdg.number === 12 ? 'bg-[#BF8B2E] text-white' :
+                                                                                sdg.number === 13 ? 'bg-[#3F7E44] text-white' :
+                                                                                    sdg.number === 14 ? 'bg-[#0A97D9] text-white' :
+                                                                                        sdg.number === 15 ? 'bg-[#56C02B] text-white' :
+                                                                                            sdg.number === 16 ? 'bg-[#00689D] text-white' :
+                                                                                                'bg-[#19486A] text-white'
                                     }`}>
-                                    <span className="text-xl font-black opacity-50">{sdg.number}</span>
-                                    <span className="text-[0.65rem] md:text-xs font-bold leading-tight line-clamp-3">{sdg.title}</span>
+                                    <div className="flex justify-between items-start">
+                                        <span className="text-lg md:text-xl font-black opacity-60">{sdg.number}</span>
+                                        <sdg.icon className="w-5 h-5 md:w-6 md:h-6 opacity-90" />
+                                    </div>
+                                    <span className="text-[0.65rem] md:text-xs font-bold leading-tight line-clamp-3 tracking-wide">{sdg.title}</span>
                                 </div>
 
                                 {/* Tooltip */}
@@ -122,7 +130,7 @@ export default function AboutPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                             <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                                <span className="text-2xl">👩‍🏫</span>
+                                <Users className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Empowered Teachers</h3>
                             <p className="text-slate-600">
@@ -132,7 +140,7 @@ export default function AboutPage() {
 
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                             <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-6">
-                                <span className="text-2xl">🚀</span>
+                                <Rocket className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Student Tech Clubs</h3>
                             <p className="text-slate-600">
@@ -142,7 +150,7 @@ export default function AboutPage() {
 
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                             <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-6">
-                                <span className="text-2xl">🤝</span>
+                                <Handshake className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Mentorship Pipeline</h3>
                             <p className="text-slate-600">
@@ -152,7 +160,7 @@ export default function AboutPage() {
 
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                             <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 mb-6">
-                                <span className="text-2xl">🏆</span>
+                                <Trophy className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">The Grand Finale</h3>
                             <p className="text-slate-600">

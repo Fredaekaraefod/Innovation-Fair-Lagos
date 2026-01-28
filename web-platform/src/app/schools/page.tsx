@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Search, School, MapPin } from 'lucide-react';
+import { Search, School, MapPin, Sparkles, SearchX } from 'lucide-react';
 import schoolsByLGA from '@/data/schools-by-lga.json';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleUnderline } from '@/components/ui/doodles';
@@ -33,8 +33,8 @@ export default function SchoolsPage() {
         <div className="bg-slate-50 min-h-screen">
             {/* Hero with Search */}
             <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 pt-32 pb-16 text-white relative overflow-hidden">
-                <FloatingElement delay={0}><div className="absolute top-10 left-10 opacity-20 text-6xl">🏫</div></FloatingElement>
-                <FloatingElement delay={1.5}><div className="absolute bottom-10 right-10 opacity-20 text-6xl">✨</div></FloatingElement>
+                <FloatingElement delay={0}><div className="absolute top-10 left-10 opacity-20"><School className="w-20 h-20 text-white" /></div></FloatingElement>
+                <FloatingElement delay={1.5}><div className="absolute bottom-10 right-10 opacity-20"><Sparkles className="w-20 h-20 text-yellow-300" /></div></FloatingElement>
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <FadeIn>
@@ -50,7 +50,7 @@ export default function SchoolsPage() {
                                 <select
                                     value={selectedLGA}
                                     onChange={(e) => setSelectedLGA(e.target.value)}
-                                    className="appearance-none block w-full px-4 py-4 rounded-full text-gray-900 font-bold shadow-xl focus:ring-4 focus:ring-blue-500/50 focus:outline-none transition-all cursor-pointer"
+                                    className="appearance-none block w-full px-4 py-4 rounded-xl md:rounded-l-2xl md:rounded-r-none text-gray-900 font-bold shadow-xl focus:ring-4 focus:ring-blue-500/50 focus:outline-none transition-all cursor-pointer bg-white border-r border-gray-100"
                                 >
                                     <option value="All">All LGAs</option>
                                     {lgas.map(lga => (
@@ -68,7 +68,7 @@ export default function SchoolsPage() {
                                 </div>
                                 <input
                                     type="text"
-                                    className="block w-full pl-12 pr-4 py-4 rounded-full text-gray-900 font-medium shadow-xl focus:ring-4 focus:ring-blue-500/50 focus:outline-none transition-all"
+                                    className="block w-full pl-12 pr-4 py-4 rounded-xl md:rounded-l-none md:rounded-r-2xl text-gray-900 font-medium shadow-xl focus:ring-4 focus:ring-blue-500/50 focus:outline-none transition-all bg-white placeholder:text-gray-400"
                                     placeholder="Search school name..."
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -97,7 +97,8 @@ export default function SchoolsPage() {
                         ))}
                         {filteredSchools.length === 0 && (
                             <div className="col-span-full py-20 text-center">
-                                <p className="text-xl text-gray-400 font-medium">No schools found matching &quot;{searchTerm}&quot; 😔</p>
+                                <SearchX className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                                <p className="text-xl text-gray-400 font-medium">No schools found matching &quot;{searchTerm}&quot;</p>
                                 <button className="mt-4 text-blue-600 font-bold hover:underline">Can&apos;t find your school? Contact Support</button>
                             </div>
                         )}

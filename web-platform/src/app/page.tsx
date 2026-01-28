@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Users, Lightbulb, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Lightbulb, Sparkles, Rocket, UserPlus } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleArrow, ScribbleUnderline, ScribbleCircle } from '@/components/ui/doodles';
 
@@ -19,8 +19,8 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FloatingElement delay={0}>
-            <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-purple-300 bg-purple-900/30 backdrop-blur-sm text-purple-200 font-semibold text-sm tracking-wide">
-              🚀 Lagos Innovation Fair 2026
+            <div className="inline-flex items-center mb-4 px-4 py-1.5 rounded-full border border-purple-300 bg-purple-900/30 backdrop-blur-sm text-purple-200 font-semibold text-sm tracking-wide">
+              <Rocket className="w-4 h-4 mr-2 text-yellow-400" /> Lagos Innovation Fair 2026
             </div>
           </FloatingElement>
 
@@ -48,7 +48,7 @@ export default function Home() {
               className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-indigo-900 bg-white rounded-full shadow-lg hover:bg-yellow-300 transition-all hover:scale-110 active:scale-95 overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-shimmer" />
-              <Sparkles className="w-5 h-5 mr-2 text-yellow-600" />
+              <UserPlus className="w-5 h-5 mr-2 text-yellow-600" />
               Join as Student / Team
             </Link>
 

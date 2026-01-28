@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Heart, Users, LineChart, Truck, Sparkles } from 'lucide-react';
+import { Heart, Users, LineChart, Truck, Sparkles, Handshake } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleUnderline } from '@/components/ui/doodles';
 
@@ -34,7 +34,7 @@ export default function VolunteersPage() {
     return (
         <div className="bg-slate-50 min-h-screen">
             <div className="bg-gradient-to-r from-blue-900 to-indigo-900 py-20 text-white relative overflow-hidden">
-                <FloatingElement><div className="absolute top-10 right-10 text-8xl opacity-10">🤝</div></FloatingElement>
+                <FloatingElement><div className="absolute top-10 right-10 text-white/5"><Handshake className="w-32 h-32" /></div></FloatingElement>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <FadeIn>
                         <h1 className="text-4xl md:text-6xl font-black mb-6">

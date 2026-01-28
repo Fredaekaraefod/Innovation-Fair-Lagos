@@ -4,7 +4,7 @@ import { useState, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import schoolsByLGA from '@/data/schools-by-lga.json';
 import { sdgs } from '@/data/sdgs';
-import { Check, Loader2, Sparkles, UploadCloud, FileText } from 'lucide-react';
+import { Check, Loader2, Sparkles, UploadCloud, FileText, User, Users, Lightbulb, PartyPopper } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleCircle } from '@/components/ui/doodles';
 import { registerStudent } from '@/actions/student-registration';
@@ -92,7 +92,7 @@ export default function StudentRegisterPage() {
                     </div>
                 </FloatingElement>
                 <FadeIn>
-                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Registration Successful! 🚀</h2>
+                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4 flex items-center justify-center">Registration Successful! <PartyPopper className="w-8 h-8 ml-3 text-yellow-500" /></h2>
                     <p className="text-gray-600 mb-8 text-lg">
                         <strong>Great job {formData.fullName.split(' ')[0]}!</strong> We have received your details.
                         <br />Please inform your teacher that you have registered.
@@ -109,8 +109,8 @@ export default function StudentRegisterPage() {
         <div className="bg-slate-50 min-h-screen py-20 relative overflow-hidden">
             {/* Background Scribbles */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-50">
-                <FloatingElement delay={0}><div className="absolute top-20 left-10 text-6xl text-blue-200">✨</div></FloatingElement>
-                <FloatingElement delay={1}><div className="absolute bottom-20 right-10 text-6xl text-purple-200">💡</div></FloatingElement>
+                <FloatingElement delay={0}><div className="absolute top-20 left-10 text-blue-200"><Sparkles className="w-20 h-20" /></div></FloatingElement>
+                <FloatingElement delay={1}><div className="absolute bottom-20 right-10 text-purple-200"><Lightbulb className="w-20 h-20" /></div></FloatingElement>
             </div>
 
             <div className="container mx-auto px-4 max-w-4xl relative z-10">
@@ -136,16 +136,16 @@ export default function StudentRegisterPage() {
                                     <button
                                         type="button"
                                         onClick={() => setFormData(p => ({ ...p, isTeam: false }))}
-                                        className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-colors ${!formData.isTeam ? 'text-blue-900' : 'text-gray-500 hover:text-gray-900'}`}
+                                        className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-colors flex items-center gap-2 ${!formData.isTeam ? 'text-blue-900' : 'text-gray-500 hover:text-gray-900'}`}
                                     >
-                                        Individual 👤
+                                        Individual <User className="w-4 h-4" />
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => setFormData(p => ({ ...p, isTeam: true }))}
-                                        className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-colors ${formData.isTeam ? 'text-blue-900' : 'text-gray-500 hover:text-gray-900'}`}
+                                        className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-colors flex items-center gap-2 ${formData.isTeam ? 'text-blue-900' : 'text-gray-500 hover:text-gray-900'}`}
                                     >
-                                        Team 👥
+                                        Team <Users className="w-4 h-4" />
                                     </button>
                                 </div>
                             </div>
@@ -258,11 +258,11 @@ export default function StudentRegisterPage() {
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all font-medium"
                                     >
-                                        <option>IoT & Hardware Innovation 🔌</option>
-                                        <option>Robotics 🤖</option>
-                                        <option>Software / Coding 💻</option>
-                                        <option>Design / Creative Arts 🎨</option>
-                                        <option>Science & Research 🔬</option>
+                                        <option>IoT & Hardware Innovation</option>
+                                        <option>Robotics</option>
+                                        <option>Software / Coding</option>
+                                        <option>Design / Creative Arts</option>
+                                        <option>Science & Research</option>
                                     </select>
                                 </div>
                             </div>
@@ -308,7 +308,9 @@ export default function StudentRegisterPage() {
                             {/* New Project Section */}
                             <div className="pt-8 border-t border-gray-100">
                                 <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                                    <span className="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">💡</span>
+                                    <span className="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                        <Lightbulb className="w-5 h-5 text-blue-600" />
+                                    </span>
                                     Project Idea (Optional but Recommended)
                                 </h3>
 
