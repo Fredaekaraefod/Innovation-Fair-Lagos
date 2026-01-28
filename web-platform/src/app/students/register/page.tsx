@@ -1,22 +1,18 @@
 'use client';
 
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import schoolsByLGA from '@/data/schools-by-lga.json';
 import { sdgs } from '@/data/sdgs';
 import { Check, Loader2, Sparkles, UploadCloud, FileText, User, Users, Lightbulb, PartyPopper } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleCircle } from '@/components/ui/doodles';
-import { registerStudent } from '@/actions/student-registration';
 
 const lgas = Object.keys(schoolsByLGA).sort();
 
 export default function StudentRegisterPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-    const [file, setFile] = useState<File | null>(null);
-    const fileInputRef = useRef<HTMLInputElement>(null);
-    const [errorMessage, setErrorMessage] = useState('');
 
     // Form state
     const [formData, setFormData] = useState({
@@ -46,25 +42,10 @@ export default function StudentRegisterPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        setErrorMessage('');
-
-        const submissionData = new FormData();
-        Object.entries(formData).forEach(([key, value]) => {
-            submissionData.append(key, String(value));
-        });
-
-        if (file) {
-            submissionData.append('conceptNote', file);
-        }
-
-        const result = await registerStudent(submissionData);
-
-        if (result.success) {
-            setIsSuccess(true);
-        } else {
-            setErrorMessage(result.message);
-        }
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoading(false);
+        setIsSuccess(true);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -74,12 +55,6 @@ export default function StudentRegisterPage() {
         // Reset school when LGA changes
         if (name === 'lga') {
             setFormData(prev => ({ ...prev, schoolName: '' }));
-        }
-    };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setFile(e.target.files[0]);
         }
     };
 
@@ -125,11 +100,6 @@ export default function StudentRegisterPage() {
                         </div>
 
                         <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-8">
-                            {errorMessage && (
-                                <div className="p-4 bg-red-50 text-red-600 border border-red-100 rounded-xl mb-6">
-                                    {errorMessage}
-                                </div>
-                            )}
                             <div className="flex justify-center mb-8">
                                 <div className="bg-gray-100 p-1 rounded-xl inline-flex relative">
                                     <div className={`absolute top-1 bottom-1 w-1/2 bg-white rounded-lg shadow-sm transition-all duration-300 ${formData.isTeam ? 'translate-x-full left-auto right-1' : 'left-1'}`}></div>
@@ -357,23 +327,14 @@ export default function StudentRegisterPage() {
 
                                     <div className="space-y-3">
                                         <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Upload Concept Note / Sketch (PDF/Image)</label>
-                                        <div
-                                            onClick={() => fileInputRef.current?.click()}
-                                            className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer group"
-                                        >
+                                        <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer group">
                                             <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
-                                                {file ? <FileText className="text-blue-600 w-6 h-6" /> : <UploadCloud className="text-blue-600 w-6 h-6" />}
+                                                <UploadCloud className="text-blue-600 w-6 h-6" />
                                             </div>
-                                            <div className="text-gray-900 font-bold mb-1">{file ? file.name : "Click to upload document"}</div>
-                                            <div className="text-sm text-gray-500">{file ? "Click to change" : "or drag and drop (PDF, PNG, JPG)"}</div>
+                                            <div className="text-gray-900 font-bold mb-1">Click to upload document</div>
+                                            <div className="text-sm text-gray-500">or drag and drop (PDF, PNG, JPG)</div>
                                             <div className="text-xs text-gray-400 mt-2">Maximum size: 5MB</div>
-                                            <input
-                                                ref={fileInputRef}
-                                                type="file"
-                                                onChange={handleFileChange}
-                                                className="hidden"
-                                                accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
-                                            />
+                                            <input type="file" className="hidden" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" />
                                         </div>
                                     </div>
                                 </div>

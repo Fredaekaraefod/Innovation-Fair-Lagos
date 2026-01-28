@@ -6,7 +6,6 @@ import Link from 'next/link';
 import schoolsByLGA from '@/data/schools-by-lga.json';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleUnderline } from '@/components/ui/doodles';
-import { registerTeacher } from '@/actions/teacher-registration';
 
 const lgas = Object.keys(schoolsByLGA).sort();
 
@@ -55,25 +54,10 @@ export default function TeacherRegisterPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-
-        const submissionData = new FormData();
-        Object.entries(formData).forEach(([key, value]) => {
-            if (key === 'facilities') {
-                // Append each facility individually so getAll('facilities') works on server
-                (value as string[]).forEach(f => submissionData.append('facilities', f));
-            } else {
-                submissionData.append(key, String(value));
-            }
-        });
-
-        const result = await registerTeacher(submissionData);
-
-        if (result.success) {
-            setIsSuccess(true);
-        } else {
-            alert(result.message); // Simple alert for now
-        }
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoading(false);
+        setIsSuccess(true);
     };
 
     if (isSuccess) {
