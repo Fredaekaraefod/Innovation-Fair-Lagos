@@ -162,7 +162,7 @@ export default function AboutPage() {
                             <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 mb-6">
                                 <Trophy className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-3">The Grand Finale</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">The State Exhibition</h3>
                             <p className="text-slate-600">
                                 A state-wide exhibition where the top student teams pitch their prototypes to government officials, investors, and tech leaders for funding and scholarships.
                             </p>

@@ -20,7 +20,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FloatingElement delay={0}>
             <div className="inline-flex items-center mb-4 px-4 py-1.5 rounded-full border border-purple-300 bg-purple-900/30 backdrop-blur-sm text-purple-200 font-semibold text-sm tracking-wide">
-              <Rocket className="w-4 h-4 mr-2 text-yellow-400" /> Lagos Innovation Fair 2026
+              <Rocket className="w-4 h-4 mr-2 text-yellow-400" /> Lagos State CTE Initiative 2026
             </div>
           </FloatingElement>
 
@@ -59,6 +59,12 @@ export default function Home() {
               For Teachers & Schools
             </Link>
           </FadeIn>
+
+          <FadeIn direction="up" delay={0.8} className="mt-8">
+            <Link href="/program" className="text-blue-200 hover:text-white text-sm font-semibold tracking-wide border-b border-blue-400/30 hover:border-white transition-colors pb-0.5">
+              View the Program Roadmap &rarr;
+            </Link>
+          </FadeIn>
         </div>
       </section>
 
@@ -73,7 +79,7 @@ export default function Home() {
             <FadeIn>
               <h2 className="text-4xl font-extrabold text-gray-900">Why are we doing this?</h2>
               <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-                We bridge the gap between classroom theory and real-world magic.
+                We bridge the gap between classroom theory and practical industrial application.
               </p>
             </FadeIn>
           </div>
@@ -85,21 +91,21 @@ export default function Home() {
                 color: "text-yellow-500",
                 bg: "bg-yellow-50",
                 title: "Creativity First",
-                desc: "We don't just teach code; we teach how to DREAM big and solve problems."
+                desc: "We don't just teach code; we teach how to design scalable solutions for real problems."
               },
               {
                 icon: Users,
                 color: "text-purple-500",
                 bg: "bg-purple-50",
-                title: "Teacher Power",
-                desc: "Teachers are the superheroes here, guiding the next generation of genius."
+                title: "Teacher Empowerment",
+                desc: "Teachers are the primary facilitators, guiding the next generation of technical talent."
               },
               {
                 icon: BookOpen,
                 color: "text-green-500",
                 bg: "bg-green-50",
-                title: "Public School Focus",
-                desc: "Talent is everywhere. We are bringing the opportunity to your doorstep."
+                title: "Public Sector Focus",
+                desc: "Talent is evenly distributed. We are bringing the opportunity to every district."
               }
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.2}>
@@ -125,7 +131,7 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to make noise?</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to drive impact?</h2>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link href="/support" className="inline-flex items-center justify-center text-yellow-400 hover:text-yellow-300 font-bold text-xl hover:underline decoration-wavy underline-offset-8 transition-all">
                 Support the Project <ArrowRight className="ml-2 w-6 h-6" />

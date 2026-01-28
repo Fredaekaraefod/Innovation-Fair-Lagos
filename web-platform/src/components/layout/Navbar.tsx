@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Heart, Users, GraduationCap, School } from 'lucide-react';
+import { Menu, X, ChevronDown, Heart, Users, GraduationCap, School, Building2, Newspaper, LineChart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FloatingElement } from '../ui/animations';
 
@@ -48,6 +48,12 @@ export function Navbar() {
                                                 <div className="font-bold text-gray-900">The Project</div>
                                             </div>
                                         </Link>
+                                        <Link href="/team" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div className="bg-purple-100 p-2 rounded-full mr-3 text-purple-600"><Users className="w-5 h-5" /></div>
+                                            <div>
+                                                <div className="font-bold text-gray-900">The Team</div>
+                                            </div>
+                                        </Link>
                                         <Link href="/convener" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
                                             <div className="bg-indigo-100 p-2 rounded-full mr-3 text-indigo-600"><Heart className="w-5 h-5" /></div>
                                             <div>
@@ -67,6 +73,38 @@ export function Navbar() {
                                     {item.name}
                                 </Link>
                             ))}
+
+                            {/* Partnerships Dropdown */}
+                            <div className="relative group">
+                                <button className="flex items-center text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors uppercase tracking-wide">
+                                    Partnerships <ChevronDown className="ml-1 w-4 h-4" />
+                                </button>
+                                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                    <div className="bg-white rounded-xl shadow-xl border border-indigo-50 p-4 w-64 grid gap-2">
+                                        <Link href="/partnerships/government" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div className="bg-blue-100 p-2 rounded-full mr-3 text-blue-600"><Building2 className="w-5 h-5" /></div>
+                                            <div>
+                                                <div className="font-bold text-gray-900">Government</div>
+                                                <div className="text-xs text-gray-500">Alignment & Oversight</div>
+                                            </div>
+                                        </Link>
+                                        <Link href="/partnerships/media" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div className="bg-pink-100 p-2 rounded-full mr-3 text-pink-600"><Newspaper className="w-5 h-5" /></div>
+                                            <div>
+                                                <div className="font-bold text-gray-900">Media</div>
+                                                <div className="text-xs text-gray-500">Story & Narrative</div>
+                                            </div>
+                                        </Link>
+                                        <Link href="/partnerships/financial" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <div className="bg-green-100 p-2 rounded-full mr-3 text-green-600"><LineChart className="w-5 h-5" /></div>
+                                            <div>
+                                                <div className="font-bold text-gray-900">Financial</div>
+                                                <div className="text-xs text-gray-500">Impact & Audit</div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* Get Involved Dropdown */}
                             <div className="relative group">
@@ -159,6 +197,7 @@ export function Navbar() {
                         <div className="pt-2 pb-2">
                             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">About</h3>
                             <Link href="/about" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">The Project</Link>
+                            <Link href="/team" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">The Team</Link>
                             <Link href="/convener" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">The Convener</Link>
                         </div>
 

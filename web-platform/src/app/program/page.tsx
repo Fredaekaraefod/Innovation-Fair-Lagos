@@ -18,8 +18,8 @@ export default function ProgramPage() {
             desc: "Student teams receive mentorship to build functional prototypes. We select the top 100 projects from across the state."
         },
         {
-            title: "4. The Grand Finale",
-            desc: "The best 50-100 teams showcase their solutions at the Innovation Fair. Winners are awarded cash prizes and scholarships, supported by our sponsors and the Lagos State Government."
+            title: "4. The State Exhibition",
+            desc: "The best 50-100 teams showcase their solutions at the Innovation Fair. Top teams receive scholarships and school equipment grants, supported by our sponsors and the Lagos State Government."
         }
     ];
 
@@ -48,11 +48,7 @@ export default function ProgramPage() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
                 <FadeIn delay={0.2}>
                     <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 mb-12 border border-slate-100">
-                        <FloatingElement delay={0.5}>
-                            <div className="hidden lg:block absolute -left-6 top-1/3 text-4xl text-yellow-500">
-                                <Lightbulb className="w-12 h-12 text-yellow-600 fill-yellow-100" />
-                            </div>
-                        </FloatingElement>
+
 
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">Rigorous Selection Process</h2>
                         <p className="text-gray-600 mb-6 text-lg">
@@ -113,7 +109,7 @@ export default function ProgramPage() {
                                         4
                                     </span>
                                 </div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">The Grand Finale</h3>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">The State Exhibition</h3>
                                 <div className="inline-block px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-md mb-3">Main Contest</div>
                                 <p className="text-gray-500 text-sm leading-relaxed">
                                     The final showdown. Teams present working prototypes to judges. Winners receive scholarships and recognition.
