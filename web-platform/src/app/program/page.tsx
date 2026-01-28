@@ -36,7 +36,7 @@ export default function ProgramPage() {
                     <FadeIn>
                         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 relative inline-block">
                             The Program Journey
-                            <ScribbleCircle className="absolute -top-6 -right-12 w-24 text-yellow-400 rotate-12 opacity-80 hidden md:block" />
+
                         </h1>
                         <p className="text-blue-100 text-lg max-w-2xl mx-auto mt-6">
                             From classroom curiosity to stage-ready innovation. Here is how it works.

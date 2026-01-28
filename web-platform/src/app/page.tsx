@@ -68,6 +68,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CTA Section - Moved to Top */}
+      <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <FadeIn>
+            <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to drive impact?</h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link href="/support" className="inline-flex items-center justify-center text-yellow-400 hover:text-yellow-300 font-bold text-xl hover:underline decoration-wavy underline-offset-8 transition-all">
+                Support the Project <ArrowRight className="ml-2 w-6 h-6" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Mission Section */}
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,22 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-10 opacity-10">
-          <ScribbleCircle className="w-64 h-64 text-white rotate-45" />
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to drive impact?</h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link href="/support" className="inline-flex items-center justify-center text-yellow-400 hover:text-yellow-300 font-bold text-xl hover:underline decoration-wavy underline-offset-8 transition-all">
-                Support the Project <ArrowRight className="ml-2 w-6 h-6" />
-              </Link>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+
     </div>
   );
 }

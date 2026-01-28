@@ -120,13 +120,7 @@ export function Navbar() {
                                                 <div className="text-xs text-gray-500">Join the team</div>
                                             </div>
                                         </Link>
-                                        <Link href="/mentors" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
-                                            <div className="bg-pink-100 p-2 rounded-full mr-3 text-pink-600"><Heart className="w-5 h-5" /></div>
-                                            <div>
-                                                <div className="font-bold text-gray-900">Mentors</div>
-                                                <div className="text-xs text-gray-500">Guide the students</div>
-                                            </div>
-                                        </Link>
+
                                         <Link href="/support" className="flex items-center p-3 rounded-lg hover:bg-slate-50 transition-colors">
                                             <div className="bg-green-100 p-2 rounded-full mr-3 text-green-600"><Heart className="w-5 h-5" /></div>
                                             <div>
@@ -204,7 +198,7 @@ export function Navbar() {
                         <div className="pt-4 pb-2">
                             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">Get Involved</h3>
                             <Link href="/volunteers" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Volunteers</Link>
-                            <Link href="/mentors" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Mentors</Link>
+
                             <Link href="/support" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Support</Link>
                         </div>
 

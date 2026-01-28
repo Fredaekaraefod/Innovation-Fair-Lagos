@@ -15,14 +15,14 @@ const teamMembers = [
     },
     {
         role: "Operations Lead",
-        name: "[Operations Name]",
+        name: "Odusami Oluwadamilare",
         icon: Briefcase,
         color: "bg-blue-100 text-blue-600",
         isLead: false
     },
     {
         role: "Mentor & Talent Lead",
-        name: "[Talent Name]",
+        name: "John Fanope",
         icon: Users,
         color: "bg-purple-100 text-purple-600",
         isLead: false
@@ -36,14 +36,14 @@ const teamMembers = [
     },
     {
         role: "Finance & Accountability",
-        name: "[Finance Name]",
+        name: "Umoh Stephanie",
         icon: LineChart,
         color: "bg-green-100 text-green-600",
         isLead: false
     },
     {
         role: "Communications Lead",
-        name: "[Comms Name]",
+        name: "David Efod",
         icon: Megaphone,
         color: "bg-yellow-100 text-yellow-600",
         isLead: false

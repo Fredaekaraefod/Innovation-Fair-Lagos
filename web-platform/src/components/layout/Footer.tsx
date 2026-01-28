@@ -11,7 +11,7 @@ export function Footer() {
                             &copy; {new Date().getFullYear()} All rights reserved.
                         </p>
                         <p className="text-xs text-slate-500 mt-1">
-                            Built with ❤️ for the students of Lagos State.
+                            Built by Freda Efod
                         </p>
                     </div>
                     <div className="flex flex-wrap gap-6 justify-center">
@@ -19,7 +19,7 @@ export function Footer() {
                         <Link href="/program" className="text-sm text-slate-400 hover:text-white transition">Program</Link>
                         <Link href="/schools" className="text-sm text-slate-400 hover:text-white transition">Schools</Link>
                         <Link href="/volunteers" className="text-sm text-slate-400 hover:text-white transition">Volunteers</Link>
-                        <Link href="/mentors" className="text-sm text-slate-400 hover:text-white transition">Mentors</Link>
+
                         <Link href="/teachers/register" className="text-sm text-slate-400 hover:text-white transition">Teachers</Link>
                         <Link href="/contact" className="text-sm text-slate-400 hover:text-white transition">Contact</Link>
                     </div>
