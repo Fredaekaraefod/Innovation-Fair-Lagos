@@ -44,19 +44,12 @@ export default function Home() {
             <ScribbleArrow className="absolute hidden lg:block -left-24 top-2 text-white/40 w-24 rotate-12" />
 
             <Link
-              href="/students/register"
+              href="/support"
               className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-indigo-900 bg-white rounded-full shadow-lg hover:bg-yellow-300 transition-all hover:scale-110 active:scale-95 overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-shimmer" />
-              <UserPlus className="w-5 h-5 mr-2 text-yellow-600" />
-              Join as Student / Team
-            </Link>
-
-            <Link
-              href="/teachers/register"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-white/30 rounded-full hover:bg-white/10 hover:border-white transition-all"
-            >
-              For Teachers & Schools
+              <ArrowRight className="w-5 h-5 mr-2 text-yellow-600" />
+              Support the Project
             </Link>
           </FadeIn>
 
@@ -68,19 +61,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section - Moved to Top */}
-      <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to drive impact?</h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link href="/support" className="inline-flex items-center justify-center text-yellow-400 hover:text-yellow-300 font-bold text-xl hover:underline decoration-wavy underline-offset-8 transition-all">
-                Support the Project <ArrowRight className="ml-2 w-6 h-6" />
-              </Link>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+
 
       {/* Mission Section */}
       <section className="py-24 bg-white relative">
