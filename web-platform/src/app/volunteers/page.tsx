@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Heart, Users, LineChart, Truck, Sparkles, Handshake, Megaphone, Calculator, GraduationCap, Clock, MessageCircle, Shield } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
+import { CountdownTimer } from '@/components/ui/countdown-timer';
 import { ScribbleUnderline } from '@/components/ui/doodles';
 
 export default function VolunteersPage() {
@@ -176,6 +177,14 @@ export default function VolunteersPage() {
                         <p className="mb-8 text-blue-100 text-lg max-w-xl mx-auto">
                             Whether you're a student, professional, or enthusiast, your skills can shape the future of these young innovators.
                         </p>
+
+                        <div className="mb-8">
+                            <p className="text-blue-200 uppercase tracking-widest text-sm font-bold mb-4">Applications Open In</p>
+                            <div className="transform scale-90 sm:scale-100">
+                                <CountdownTimer targetDate="2026-02-14T09:00:00" />
+                            </div>
+                        </div>
+
                         <Link
                             href="https://forms.gle/Z2Szs1rUrRokAymo6"
                             target="_blank"

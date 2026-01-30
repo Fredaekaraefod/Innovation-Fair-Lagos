@@ -53,9 +53,19 @@ export default function MediaPartnersPage() {
 
                         <div className="bg-pink-50 p-8 rounded-xl border border-pink-100 text-center">
                             <h3 className="font-bold text-pink-900 mb-4">Request Media Pack</h3>
-                            <button className="bg-pink-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-pink-700 transition flex items-center gap-2 mx-auto">
-                                Contact Comms Team <ArrowRight className="w-4 h-4" />
-                            </button>
+                            <div className="flex flex-col items-center gap-4">
+                                <a
+                                    href="/whitepaper.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-pink-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-pink-700 transition flex items-center gap-2"
+                                >
+                                    Download Whitepaper <ArrowRight className="w-4 h-4" />
+                                </a>
+                                <p className="text-pink-800 text-sm">
+                                    Interested? Email us at <a href="mailto:fredaefod@gmail.com" className="font-bold underline">fredaefod@gmail.com</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </FadeIn>
