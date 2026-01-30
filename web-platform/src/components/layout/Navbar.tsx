@@ -195,6 +195,13 @@ export function Navbar() {
                             <Link href="/convener" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">The Convener</Link>
                         </div>
 
+                        <div className="pt-2 pb-2">
+                            <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">Partnerships</h3>
+                            <Link href="/partnerships/government" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Government</Link>
+                            <Link href="/partnerships/media" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Media</Link>
+                            <Link href="/partnerships/financial" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Financial</Link>
+                        </div>
+
                         <div className="pt-4 pb-2">
                             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-2">Get Involved</h3>
                             <Link href="/volunteers" onClick={() => setIsOpen(false)} className="block py-2 text-gray-600 font-medium pl-2 border-l-2 border-transparent hover:border-indigo-500 hover:text-indigo-600">Volunteers</Link>

@@ -20,7 +20,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FloatingElement delay={0}>
             <div className="inline-flex items-center mb-4 px-4 py-1.5 rounded-full border border-purple-300 bg-purple-900/30 backdrop-blur-sm text-purple-200 font-semibold text-sm tracking-wide">
-              <Rocket className="w-4 h-4 mr-2 text-yellow-400" /> Lagos State CTE Initiative 2026
+              <Rocket className="w-4 h-4 mr-2 text-yellow-400" /> Innovation Fair Lagos 2026
             </div>
           </FloatingElement>
 

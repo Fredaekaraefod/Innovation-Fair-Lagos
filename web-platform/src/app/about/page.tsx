@@ -171,7 +171,7 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Vision 2026 CTE */}
+            {/* Vision 2026 Innovation Fair */}
             <div className="py-20 bg-blue-900 text-white relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
                 <div className="container mx-auto px-4 text-center max-w-3xl relative z-10">
