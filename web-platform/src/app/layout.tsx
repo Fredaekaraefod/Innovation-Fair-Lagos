@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow pt-20">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
