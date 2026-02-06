@@ -4,11 +4,9 @@ import Link from 'next/link';
 import { ArrowLeft, Sparkles, Lightbulb } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
 import { ScribbleCircle } from '@/components/ui/doodles';
-import { CountdownTimer } from '@/components/ui/countdown-timer';
 
 export default function TeacherRegisterPage() {
-    // Fixed launch date: February 28, 2026
-    const isoDate = '2026-02-28T09:00:00Z';
+
 
     return (
         <div className="bg-slate-50 min-h-screen py-20 relative overflow-hidden flex flex-col items-center justify-center">
@@ -24,21 +22,20 @@ export default function TeacherRegisterPage() {
                         <div className="relative z-10">
                             <ScribbleCircle className="absolute -top-6 -right-6 w-32 h-32 text-indigo-400 rotate-12 opacity-20" />
 
-                            <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-800 font-bold rounded-full mb-6 uppercase tracking-wider text-sm">
-                                Coming Soon
+                            <div className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 shadow-sm mb-8 transform hover:scale-105 transition-transform duration-300">
+                                <span className="w-2 h-2 rounded-full bg-indigo-500 mr-2 animate-pulse"></span>
+                                <span className="text-indigo-600 font-bold uppercase tracking-widest text-xs">Coming Soon</span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl font-black mb-6 text-slate-900">
-                                Teacher Registration Opens In
+                                Teacher Registration
                             </h1>
 
                             <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-12">
                                 We are finalizing the curriculum and resource kits for this year&apos;s cohort. Be the first to lead your school&apos;s innovation journey.
                             </p>
 
-                            <div className="mb-12">
-                                <CountdownTimer targetDate={isoDate} />
-                            </div>
+
 
                             <Link
                                 href="/"

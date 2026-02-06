@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Heart, Users, LineChart, Truck, Sparkles, Handshake, Megaphone, Calculator, GraduationCap, Clock, MessageCircle, Shield } from 'lucide-react';
 import { FadeIn, FloatingElement } from '@/components/ui/animations';
-import { CountdownTimer } from '@/components/ui/countdown-timer';
 import { ScribbleUnderline } from '@/components/ui/doodles';
 
 export default function VolunteersPage() {
@@ -178,20 +177,13 @@ export default function VolunteersPage() {
                             Whether you're a student, professional, or enthusiast, your skills can shape the future of these young innovators.
                         </p>
 
-                        <div className="mb-8">
-                            <p className="text-blue-200 uppercase tracking-widest text-sm font-bold mb-4">Applications Open In</p>
-                            <div className="transform scale-90 sm:scale-100">
-                                <CountdownTimer targetDate="2026-02-14T09:00:00" />
+                        <div className="mb-10">
+                            <div className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] group hover:bg-white/20 transition-all duration-300">
+                                <span className="text-white font-bold uppercase tracking-[0.2em] text-sm sm:text-base drop-shadow-md">Coming Soon</span>
                             </div>
                         </div>
 
-                        <Link
-                            href="https://forms.gle/Z2Szs1rUrRokAymo6"
-                            target="_blank"
-                            className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition transform hover:scale-105 shadow-lg flex items-center gap-2 mx-auto inline-flex"
-                        >
-                            <Sparkles className="w-5 h-5" /> Apply Now
-                        </Link>
+
                     </div>
                 </FadeIn>
             </div>
